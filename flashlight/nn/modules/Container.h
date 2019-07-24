@@ -156,6 +156,8 @@ class Sequential : public Container {
    */
   std::vector<Variable> forward(const std::vector<Variable>& input) override;
 
+  std::vector<Variable> forward(const std::vector<Variable>& input, int layer);
+
   Variable forward(const Variable& input);
 
   Variable operator()(const Variable& input);

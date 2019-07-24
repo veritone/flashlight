@@ -78,6 +78,19 @@ std::vector<Variable> Sequential::forward(const std::vector<Variable>& input) {
   return output;
 }
 
+std::vector<Variable> Sequential::forward(const std::vector<Variable>& input, int layer) {
+  auto output = input;
+  int count = 0;
+  for (auto& module : modules_) {
+    output = module->forward(output);
+    count++;
+    if (count >= layer) {
+      break;
+    }
+  }
+  return output;
+}
+
 Variable Sequential::forward(const Variable& input) {
   std::vector<Variable> output = {input};
   for (auto& module : modules_) {
