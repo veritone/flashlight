@@ -120,6 +120,8 @@ class Module {
   virtual std::vector<Variable> forward(
       const std::vector<Variable>& inputs) = 0;
 
+  std::vector<Variable> forward(const std::vector<Variable>& inputs, int layer);
+
   /**
    * Overload for forward computation for the module.
    *

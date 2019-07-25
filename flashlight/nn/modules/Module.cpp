@@ -63,6 +63,10 @@ void Module::eval() {
   }
 }
 
+std::vector<Variable> Module::forward(const std::vector<Variable>& inputs, int layer) {
+  return this->forward(inputs);
+}
+
 std::vector<Variable> Module::params() const {
   return params_;
 }
